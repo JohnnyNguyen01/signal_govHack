@@ -86,59 +86,103 @@ class CustomBottomSheet extends StatelessWidget {
                       Text("Latest Area Updates"),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(12),
-                        child: Card(
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: Container(
-                              width: 320,
-                              height: 80,
-                              color: Colors.green.shade500,
-                              child: Row(
-                                children: <Widget>[
-                                  Container(
-                                    margin: EdgeInsets.only(left: 8),
-                                    child: FaIcon(
-                                      FontAwesomeIcons.checkCircle,
-                                      color: Colors.white,
-                                      size: 40,
-                                    ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.only(left: 8),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text(
-                                          "Area now declared SAFE.",
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w600,
-                                              color: Colors.white),
-                                        ),
-                                        Text(
-                                          "RFS has successfully responded and ",
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                        Text(
-                                          "put out the small fire at 5:00pm ",
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
+                        child: AreaUpdateCard(
+                          title: "Area now declared SAFE",
+                          color: Colors.green.shade500,
+                          textOne: "RFS has successfuly responded and",
+                          textTwo: "put out the small fire at 5:00pm",
+                          icon: FontAwesomeIcons.checkCircle,
                         ),
-                      )
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      AreaUpdateCard(
+                        title: "Area now declared DANGEROUS",
+                        textOne: "RFS Alerted to the scene",
+                        textTwo: "mild fire ",
+                        icon: FontAwesomeIcons.bell,
+                        color: Colors.red.shade700,
+                      ),
                     ],
                   ),
                 ],
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class AreaUpdateCard extends StatelessWidget {
+  /*
+    Original values
+    color: Green.shade500
+    textOne: RFS has successfuly responded and
+    textTwo: put out the small fire at 5:00pm
+    icon: FontAwesomeIcons.checkCircle
+   */
+
+  String title;
+  String textOne;
+  String textTwo;
+  Color color;
+  IconData icon;
+
+  AreaUpdateCard({
+    this.title,
+    this.textOne,
+    this.textTwo,
+    this.color,
+    this.icon,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: Container(
+          width: 320,
+          height: 80,
+          color: color,
+          child: Row(
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.only(left: 8),
+                child: FaIcon(
+                  icon,
+                  color: Colors.white,
+                  size: 40,
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 8),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      title,
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white),
+                    ),
+                    Text(
+                      textOne,
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      textTwo,
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
