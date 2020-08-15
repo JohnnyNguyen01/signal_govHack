@@ -95,10 +95,37 @@ class CustomBottomSheet extends StatelessWidget {
                               color: Colors.green.shade500,
                               child: Row(
                                 children: <Widget>[
-                                  FaIcon(
-                                    FontAwesomeIcons.checkCircle,
-                                    color: Colors.white,
-                                    size: 35,
+                                  Container(
+                                    margin: EdgeInsets.only(left: 8),
+                                    child: FaIcon(
+                                      FontAwesomeIcons.checkCircle,
+                                      color: Colors.white,
+                                      size: 40,
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text(
+                                          "Area now declared SAFE.",
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.white),
+                                        ),
+                                        Text(
+                                          "RFS has successfully responded and ",
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                        Text(
+                                          "put out the small fire at 5:00pm ",
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
