@@ -14,6 +14,8 @@ The Signal app allows the NSW Fire department to get live data about areas affec
 
 The app allows users in hazard prone areas to submit a report if there is a bushfire in their location. This report is then approved by the NSW Rural Fire Service and is used to help support an emergency response. Signal also creates a way for the RFS to communicate with the community, providing a community forum under each verified bushfire report.
 
+
+
 <img src="https://raw.githubusercontent.com/Johnnythenewbie/signal_govHack/master/SignalMockup.png" alt="" width="800" height="641"> 
 
 
