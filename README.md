@@ -1,4 +1,4 @@
-# signal_govHack
+# Signal
 <a href="https://ibb.co/993QJ2c"><img src="https://i.ibb.co/Gv3zXkn/Signal-Readme.png" alt="Signal-Readme" border="0"></a><br>
 <b>Project Name:</b> Signal - a live bushfire reporting app<br>
 <b>Team Name:</b> LitSquad (NSW)<br>
