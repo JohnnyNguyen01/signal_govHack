@@ -1,4 +1,3 @@
-# Signal
 
 <a href="https://ibb.co/993QJ2c"><img src="https://i.ibb.co/Gv3zXkn/Signal-Readme.png" alt="Signal-Readme" border="0"></a><br>
 
@@ -32,7 +31,7 @@ Bushfire incidents were recorded by monitoring high risk areas with helicopters,
 The Signal app can drastically cut down on this processing time, create a quick and reliable source of incident reporting for the NSW Fire department as well as effectively communicate with the community and help them take action to better respond to future bushfires.
 
 
-# DataSet Used
+# Dataset Used
 
 NSW Burnt Area - Combined bush fire incident extents
 https://portal.data.nsw.gov.au/arcgis/home/item.html?id=19c6baa455fa43a7bf730f012884b8df
