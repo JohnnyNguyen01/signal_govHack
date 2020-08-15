@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:signal_flutter_v2/components/bottom_sheet.dart';
 
 //REMOVE THIS GOOGLE_MAPS_API_KEY = 'AIzaSyAr31utYalU_q4_Lh1GtqZrCDgg0VBlcHI'
 
@@ -35,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  //The initial method that runs everytime Google Maps Opens
   void _onMapCreated(GoogleMapController controller) {
     _mapController = controller;
     setState(() {
@@ -51,102 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     return Opacity(
                       opacity: 0.8,
                       child: Scaffold(
-                        body: SingleChildScrollView(
-                          physics: ClampingScrollPhysics(),
-                          child: Container(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: <Widget>[
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  child: Image.network(
-                                      "https://www.nationalparks.nsw.gov.au/-/media/npws/images/parks/gundabooka-national-park/little-mountain-walking-track/little-mountain-track-01.jpg"),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 12),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Text(
-                                        "SYDNEY",
-                                        style: TextStyle(
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(height: 12),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Text(
-                                            "status: ",
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                            ),
-                                          ),
-                                          Text(
-                                            "SAFE",
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                color: Colors.green.shade500),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(height: 12),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Text(
-                                            "reports: ",
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                            ),
-                                          ),
-                                          Text(
-                                            "124",
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(height: 12),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          Text(
-                                            "RFS response: ",
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                            ),
-                                          ),
-                                          Text(
-                                            "none",
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(height: 15),
-                                      Column(
-                                        children: <Widget>[
-                                          Text("Latest Area Updates"),
-                                          Container(
-                                            color: Colors.black,
-                                            width: 350,
-                                            height: 400,
-                                          )
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                        body: CustomBottomSheet(),
                       ),
                     );
                   });
@@ -343,8 +250,10 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  //
   @override
   Widget build(BuildContext context) {
+    //scaffold is the base of any page that you make
     return Scaffold(
         body: Stack(
       children: <Widget>[
