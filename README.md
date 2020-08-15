@@ -4,7 +4,7 @@
 
 ![alt text][logo]
 
-[logo]: https://raw.githubusercontent.com/Johnnythenewbie/signal_govHack/master/SignalMockup.png "Mockup"
+[logo]: https://raw.githubusercontent.com/Johnnythenewbie/signal_govHack/master/SignalMockup.png "Mockup" =250x
 <b>Project Name:</b> Signal - a live bushfire reporting app<br>
 <b>Team Name:</b> LitSquad (NSW)<br>
 <b>Challenge:</b> Engaging communities in hazard reporting & safety (Challenge)<br>
