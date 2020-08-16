@@ -8,7 +8,6 @@
 Engaging communities in hazard reporting & safety [(Challenge Link)](https://hackerspace.govhack.org/challenges/engaging_communities_in_hazard_reporting_safety)<br>
 Improving government services with open data [(Challenge Link)](https://hackerspace.govhack.org/challenges/improving_government_services_with_open_data)
 
-
 # Our Solution
 
 The Signal app allows the NSW Fire department to get live data about areas affected by the bushfires by allowing Australians to quickly and easily report if there is a fire in their area.<br>
@@ -66,13 +65,12 @@ Vote for our project and help the heroes of Australia get the information they n
 <table>
   <tr>
     <td> <img src="/screenshots/1.png"  alt="1" width = 180px height = 360px ></td>
-    <td><img src="/screenshots/shot2.png alt="3" width = 180px height = 360px></td>
+    <td><img src="/screenshots/shot2.png" alt="3" width = 180px height = 360px></td>
     <td><img src="/screenshots/3.png" alt="2" width = 180x height = 360px></td>
    </tr> 
    <tr>
-    <td><img src="/screenshots/shot4.png alt="3" width = 180px height = 360px></td>
+    <td><img src="/screenshots/4.png" alt="3" width = 180px height = 360px></td>
     <td><img src="/screenshots/5.png" alt="2" width = 180x height = 360px></td>
-
   </tr>
 </table>
 
