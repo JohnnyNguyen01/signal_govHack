@@ -34,7 +34,7 @@ dependencies:
   google_maps_flutter: ^0.5.30
   modal_bottom_sheet: ^0.2.0+1
   font_awesome_flutter: ^8.8.1
-  location: ^3.0.0
+  geolocator: ^5.3.2+1
   image_picker: ^0.6.7
 
 

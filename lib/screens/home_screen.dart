@@ -1,11 +1,13 @@
 import 'dart:collection';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:signal_flutter_v2/components/bottom_sheet.dart';
 import 'package:signal_flutter_v2/data/area_update_card_lists.dart';
-import 'package:location/location.dart';
+import 'package:image_picker/image_picker.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -16,7 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
   GoogleMapController _mapController;
   Set<Marker> _markers = HashSet<Marker>();
   BitmapDescriptor _customIcon;
-  Location location = Location();
+  File _image;
+  final picker = ImagePicker();
   // @override
   // void initState() {
   //   super.initState();
@@ -27,15 +30,23 @@ class _HomeScreenState extends State<HomeScreen> {
   //   });
   // }
 
+  void getPosition() async {
+    Position position = await Geolocator()
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    print(position);
+  }
+
   @override
   void initState() {
     super.initState();
-    getLocation();
   }
 
-  void getLocation() async {
-    LocationData _locationData = await location.getLocation();
-    print(_locationData);
+  Future getImage() async {
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
+
+    setState(() {
+      _image = File(pickedFile.path);
+    });
   }
 
   //The initial method that runs everytime Google Maps Opens
@@ -68,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
           infoWindow: InfoWindow(
             title: "Gunderbrooka",
-            snippet: "🔥🔥🔥",
+            snippet: "🔥🔥🔥 Sever",
           )),
     );
     _markers.add(
@@ -80,12 +91,19 @@ class _HomeScreenState extends State<HomeScreen> {
             showCupertinoModalBottomSheet(
                 context: context,
                 builder: (context, scrollController) {
-                  return Container();
+                  return CustomBottomSheet(
+                      imageURL:
+                          "https://live.staticflickr.com/4148/5064690682_3548b5ac28_b.jpg",
+                      reports: "232",
+                      location: "Yathong",
+                      isSafe: true,
+                      rfsResponse: "incoming",
+                      areaUpdateCardsList: gundabrookaUpdateCardList);
                 });
           },
           infoWindow: InfoWindow(
             title: "Yathong",
-            snippet: "No Fire",
+            snippet: "🔥 mild",
           )),
     );
     _markers.add(
@@ -97,12 +115,20 @@ class _HomeScreenState extends State<HomeScreen> {
             showCupertinoModalBottomSheet(
                 context: context,
                 builder: (context, scrollController) {
-                  return Container();
+                  return CustomBottomSheet(
+                    imageURL:
+                        "https://cdn.australia247.info/assets/uploads/1bf828ced23b76e02327e99e8120b085_-new-south-wales-mount-hope-nombinnie-nature-reservehtml.jpg",
+                    location: "Nohimbinnie Nature Reserve",
+                    reports: "64",
+                    isSafe: true,
+                    rfsResponse: "none",
+                    areaUpdateCardsList: gundabrookaUpdateCardList,
+                  );
                 });
           },
           infoWindow: InfoWindow(
             title: "Nohimbinnie Nature Reserve",
-            snippet: "No Fire",
+            snippet: "Safe",
           )),
     );
     _markers.add(
@@ -114,12 +140,19 @@ class _HomeScreenState extends State<HomeScreen> {
             showCupertinoModalBottomSheet(
                 context: context,
                 builder: (context, scrollController) {
-                  return Container();
+                  return CustomBottomSheet(
+                      imageURL:
+                          "https://www.abc.net.au/news/image/10762292-3x2-940x627.jpg",
+                      reports: "112",
+                      location: "Stuart National Park",
+                      isSafe: false,
+                      rfsResponse: "incoming",
+                      areaUpdateCardsList: gundabrookaUpdateCardList);
                 });
           },
           infoWindow: InfoWindow(
             title: "Stuart National Park",
-            snippet: "No Fire",
+            snippet: "🔥🔥🔥 Sever",
           )),
     );
     _markers.add(
@@ -131,12 +164,19 @@ class _HomeScreenState extends State<HomeScreen> {
             showCupertinoModalBottomSheet(
                 context: context,
                 builder: (context, scrollController) {
-                  return Container();
+                  return CustomBottomSheet(
+                      imageURL:
+                          "https://ichef.bbci.co.uk/news/320/cpsprodpb/14644/production/_110242538_gettyimages-1194815171.jpg",
+                      reports: "112",
+                      location: "Mutawinji",
+                      isSafe: false,
+                      rfsResponse: "on site",
+                      areaUpdateCardsList: gundabrookaUpdateCardList);
                 });
           },
           infoWindow: InfoWindow(
             title: "Mutawinji",
-            snippet: "No Fire",
+            snippet: "🔥🔥🔥 Sever",
           )),
     );
     _markers.add(
@@ -148,12 +188,19 @@ class _HomeScreenState extends State<HomeScreen> {
             showCupertinoModalBottomSheet(
                 context: context,
                 builder: (context, scrollController) {
-                  return Container();
+                  return CustomBottomSheet(
+                      imageURL:
+                          "https://www.abc.net.au/cm/rimage/7835986-16x9-xlarge.jpg?v=4",
+                      reports: "34",
+                      location: "Jimberoo National Park",
+                      isSafe: false,
+                      rfsResponse: "incoming",
+                      areaUpdateCardsList: gundabrookaUpdateCardList);
                 });
           },
           infoWindow: InfoWindow(
             title: "Jimberoo National Park",
-            snippet: "No Fire",
+            snippet: "🔥 mild fire",
           )),
     );
     _markers.add(
@@ -165,7 +212,14 @@ class _HomeScreenState extends State<HomeScreen> {
             showCupertinoModalBottomSheet(
                 context: context,
                 builder: (context, scrollController) {
-                  return Container();
+                  return CustomBottomSheet(
+                      imageURL:
+                          "https://www.denverpost.com/wp-content/uploads/2019/08/01381090c8bb4aebbcaf759c34b047bc.jpg",
+                      reports: "45",
+                      location: "Cococapra",
+                      isSafe: false,
+                      rfsResponse: "on site",
+                      areaUpdateCardsList: gundabrookaUpdateCardList);
                 });
           },
           infoWindow: InfoWindow(
@@ -182,12 +236,19 @@ class _HomeScreenState extends State<HomeScreen> {
             showCupertinoModalBottomSheet(
                 context: context,
                 builder: (context, scrollController) {
-                  return Container();
+                  return CustomBottomSheet(
+                      imageURL:
+                          "https://www.denverpost.com/wp-content/uploads/2019/08/01381090c8bb4aebbcaf759c34b047bc.jpg",
+                      reports: "45",
+                      location: "Cococapra",
+                      isSafe: false,
+                      rfsResponse: "on site",
+                      areaUpdateCardsList: gundabrookaUpdateCardList);
                 });
           },
           infoWindow: InfoWindow(
             title: "Coolah Tops",
-            snippet: "No Fire",
+            snippet: "🔥 mild fire",
           )),
     );
     _markers.add(
@@ -210,7 +271,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _markers.add(
       Marker(
           //todo change marker id -> unique
-          markerId: MarkerId("0"),
+          markerId: MarkerId("11"),
           position: LatLng(-33.777837, 147.800537),
           onTap: () {
             showCupertinoModalBottomSheet(
@@ -239,7 +300,7 @@ class _HomeScreenState extends State<HomeScreen> {
           myLocationButtonEnabled: false,
           initialCameraPosition: CameraPosition(
             target: LatLng(-33.8688, 151.2093),
-            zoom: 4,
+            zoom: 8,
           ),
           markers: _markers,
         ),
@@ -251,14 +312,16 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.white,
               size: 30,
             ),
-            onPressed: () => showCupertinoModalBottomSheet(
-              context: context,
-              builder: (context, scrollController) => Container(
-                child: Column(
-                  children: <Widget>[Text("Hello there")],
+            onPressed: () {
+              showCupertinoModalBottomSheet(
+                context: context,
+                builder: (context, scrollController) => Container(
+                  child: Column(
+                    children: <Widget>[Text("Hello there")],
+                  ),
                 ),
-              ),
-            ),
+              );
+            },
           ),
         ),
         Positioned(
@@ -292,9 +355,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Container(
                               width: 300,
                               height: 200,
-                              color: Colors.black,
                               child: Stack(
                                 children: <Widget>[
+                                  _image == null
+                                      ? Center(
+                                          child: Text('No image selected.'))
+                                      : Image.file(_image),
                                   Positioned(
                                     bottom: 10,
                                     right: 10,
@@ -314,7 +380,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             size: 25,
                                           ),
                                         ),
-                                        onPressed: () => {}),
+                                        onPressed: () => getImage()),
                                   )
                                 ],
                               ),
