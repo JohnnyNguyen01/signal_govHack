@@ -512,19 +512,33 @@ class _HomeScreenState extends State<HomeScreen> {
                       body: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
-                          Text("Report incident in:"),
+                          Text(
+                            "Report incident in:",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
                           SizedBox(height: 20),
-                          Text("upload a photo"),
+                          Text(
+                            "upload a photo",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                           Center(
                             child: Container(
                               width: 300,
                               height: 200,
                               child: Stack(
                                 children: <Widget>[
-                                  _image == null
-                                      ? Center(
-                                          child: Text('No image selected.'))
-                                      : Image.file(_image),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image: NetworkImage(
+                                            "https://www.lifehacker.com.au/content/uploads/sites/4/2018/09/Getty-Bush-Fire.jpg"),
+                                      ),
+                                    ),
+                                  ),
                                   Positioned(
                                     bottom: 10,
                                     right: 10,
@@ -550,17 +564,39 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                           ),
-                          Slider(
-                              value: severity,
-                              min: 0,
-                              max: 100,
-                              //divisions: 4,
-                              onChanged: (double value) {
-                                setState(() => severity = value);
-                              }),
+                          SizedBox(height: 15),
+                          Container(
+                            width: 300,
+                            height: 20,
+                            child: Row(
+                              children: <Widget>[
+                                FaIcon(
+                                  FontAwesomeIcons.smileBeam,
+                                  color: Colors.orange,
+                                ),
+                                StatefulBuilder(builder: (ctx, setState) {
+                                  return Slider(
+                                      activeColor: Colors.red,
+                                      inactiveColor: Colors.orange,
+                                      value: severity,
+                                      min: 0,
+                                      max: 100,
+                                      divisions: 4,
+                                      onChanged: (double value) {
+                                        setState(() => severity = value);
+                                        setState(() {});
+                                      });
+                                }),
+                                FaIcon(
+                                  FontAwesomeIcons.frownOpen,
+                                  color: Colors.orange,
+                                ),
+                              ],
+                            ),
+                          ),
                           SizedBox(height: 30),
                           FlatButton(
-                              onPressed: () {},
+                              onPressed: () => Navigator.pop(context),
                               child: Text(
                                 "CONFIRM",
                                 style: TextStyle(
