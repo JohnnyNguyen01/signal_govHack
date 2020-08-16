@@ -27,10 +27,10 @@ The importance of current and reliable information is paramount when it comes to
 
 The Signal app can:
 
-* __Drastically improves emergency responce times__
+* __Drastically improves emergency response times__
 * __Create a quick and reliable source of incident reporting for the NSW Fire department__ 
 * __Allow effective communication between the community and the RFS to help them take action to better respond to future bushfires__
-* __Drastically reduce cost for RFS to retreive information about bushfire incidents__
+* __Drastically reduce cost for RFS to retrieve information about bushfire incidents__
 
 We strongly believe the signal app will greatly contribute to the Rural Fire Service's mission to reduce the likelihood and consequence of fires occurring in Australia. 
 
