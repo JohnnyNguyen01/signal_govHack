@@ -19,6 +19,29 @@ Signal also creates a way for the RFS to communicate with the community, providi
 
 <img src="https://raw.githubusercontent.com/Johnnythenewbie/signal_govHack/master/SignalMockup.png" alt="" width="700">
 
+# Feature List and Benefits
+
+
+* __Authentication:__ 
+Users sign up with Google or AppleID and this ensures everyone submitting report has an account (reduces the rate of false/anonymous reports and abuse of the reporting feature)
+
+* __Google Maps Layout of all Verified Reports with location pins:__ 
+All verified reports are listed on the google map for all users to see. Benefits include that it is visual and that it’s an intuitive way to display reports near the users’ location.
+
+* __Submit report Button:__ 
+A simple reporting feature that allows users to report a bushfire incident with a few simple clicks. Easy to understand. Quick and very visual.
+
+* __Reporting form:__ 
+When the Submit button is pressed, a reporting form comes up that asks users to upload an image of the fire/smoke which is sent to the RFS for verification. Use of image prevents abuse of the reporting feature as well as allowing the RFS to get additional information.
+
+* __Bottom sheet with a feed of submitted reports:__ 
+Bottom sheet displays a feed of recent activity on the app. This can help not only keep the general public informed about the RFS response but also allow the RFS to communicate with the community.
+
+* __Report details shown when location on the map is clicked:__ 
+Details of each report is shown when a marker on the map is clicked. These reports have been verified and also include updates to further facilitate communication between the RFS and the general public.
+
+
+
 # Why it’s important
 
 As a result of the 2019/2020 BushFires, at least 33 people have been killed (including four firefighters) and more than 11 million hectares of bush, forest and parks across Australia have burned.<br>
