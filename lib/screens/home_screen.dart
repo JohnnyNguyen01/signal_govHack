@@ -16,12 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   GoogleMapController _mapController;
   Set<Marker> _markers = HashSet<Marker>();
   BitmapDescriptor _customIcon;
-<<<<<<< HEAD
   Position _position;
-=======
-  BitmapDescriptor myIcon;
-
->>>>>>> 94fe8871de6e3fa1258a17df15d920553ec572fe
   // @override
   // void initState() {
   //   super.initState();
@@ -31,20 +26,11 @@ class _HomeScreenState extends State<HomeScreen> {
   //     _customIcon = icon;
   //   });
   // }
-  @override
-  void initState() {
-    BitmapDescriptor.fromAssetImage(
-            ImageConfiguration(size: Size(2.5, 2.5)), 'lib/assets/fire.png')
-        .then((onValue) {
-      myIcon = onValue;
-    });
-  }
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    getPosition();
   }
 
   void getPosition() async {
@@ -56,62 +42,9 @@ class _HomeScreenState extends State<HomeScreen> {
   void _onMapCreated(GoogleMapController controller) {
     _mapController = controller;
     setState(() {
-<<<<<<< HEAD
-      // _markers.add(
-      //   Marker(
-      //       //todo change marker id -> unique
-      //       markerId: MarkerId("0"),
-      //       position: LatLng(-33.8688, 151.2093),
-      //       onTap: () {
-      //         showCupertinoModalBottomSheet(
-      //             context: context,
-      //             builder: (context, scrollController) {
-      //               return Opacity(
-      //                 opacity: 0.8,
-      //                 child: Scaffold(
-      //                   body: CustomBottomSheet(
-      //                       location: "Sydney",
-      //                       reports: "124",
-      //                       isSafe: true,
-      //                       rfsResponse: "none",
-      //                       areaUpdateCardsList: sydney,
-      //                       imageURL:
-      //                           "https://www.nationalparks.nsw.gov.au/-/media/npws/images/parks/gundabooka-national-park/little-mountain-walking-track/little-mountain-track-01.jpg"),
-      //                 ),
-      //               );
-      //             });
-      //       },
-      //       infoWindow: InfoWindow(
-      //         title: "Sydney",
-      //         snippet: "No Fire",
-      //       )),
-      // );
-=======
-      _markers.add(
-        Marker(
-            //todo change marker id -> unique
-            markerId: MarkerId("0"),
-            position: LatLng(-33.8688, 151.2093),
-            icon: myIcon,
-            onTap: () {
-              showCupertinoModalBottomSheet(
-                  context: context,
-                  builder: (context, scrollController) {
-                    return Opacity(
-                      opacity: 0.8,
-                      child: Scaffold(
-                        body: CustomBottomSheet(),
-                      ),
-                    );
-                  });
-            },
-            infoWindow: InfoWindow(
-              title: "Sydney",
-              snippet: "No Fire",
-            )),
-      );
->>>>>>> 94fe8871de6e3fa1258a17df15d920553ec572fe
       _addMarkerList();
+      getPosition();
+      print(_position);
     });
   }
 
@@ -121,7 +54,6 @@ class _HomeScreenState extends State<HomeScreen> {
           //todo change marker id -> unique
           markerId: MarkerId("1"),
           position: LatLng(-30.501446, 145.702932),
-<<<<<<< HEAD
           onTap: () => {
                 showCupertinoModalBottomSheet(
                     context: context,
@@ -136,16 +68,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           areaUpdateCardsList: gundabrookaUpdateCardList);
                     }),
               },
-=======
-          icon: myIcon,
-          onTap: () {
-            showCupertinoModalBottomSheet(
-                context: context,
-                builder: (context, scrollController) {
-                  return Container();
-                });
-          },
->>>>>>> 94fe8871de6e3fa1258a17df15d920553ec572fe
           infoWindow: InfoWindow(
             title: "Gunderbrooka",
             snippet: "🔥🔥🔥",
@@ -156,7 +78,6 @@ class _HomeScreenState extends State<HomeScreen> {
           //todo change marker id -> unique
           markerId: MarkerId("2"),
           position: LatLng(-32.705166, 145.567595),
-          icon: myIcon,
           onTap: () {
             showCupertinoModalBottomSheet(
                 context: context,
@@ -174,7 +95,6 @@ class _HomeScreenState extends State<HomeScreen> {
           //todo change marker id -> unique
           markerId: MarkerId("3"),
           position: LatLng(-33.072026, 145.865550),
-          icon: myIcon,
           onTap: () {
             showCupertinoModalBottomSheet(
                 context: context,
@@ -192,7 +112,6 @@ class _HomeScreenState extends State<HomeScreen> {
           //todo change marker id -> unique
           markerId: MarkerId("4"),
           position: LatLng(-29.095658, 141.426478),
-          icon: myIcon,
           onTap: () {
             showCupertinoModalBottomSheet(
                 context: context,
@@ -210,7 +129,6 @@ class _HomeScreenState extends State<HomeScreen> {
           //todo change marker id -> unique
           markerId: MarkerId("5"),
           position: LatLng(-30.962721, 142.693419),
-          icon: myIcon,
           onTap: () {
             showCupertinoModalBottomSheet(
                 context: context,
@@ -228,7 +146,6 @@ class _HomeScreenState extends State<HomeScreen> {
           //todo change marker id -> unique
           markerId: MarkerId("7"),
           position: LatLng(-33.768513, 146.281073),
-          icon: myIcon,
           onTap: () {
             showCupertinoModalBottomSheet(
                 context: context,
@@ -246,7 +163,6 @@ class _HomeScreenState extends State<HomeScreen> {
           //todo change marker id -> unique
           markerId: MarkerId("8"),
           position: LatLng(-34.035388, 146.194336),
-          icon: myIcon,
           onTap: () {
             showCupertinoModalBottomSheet(
                 context: context,
@@ -264,7 +180,6 @@ class _HomeScreenState extends State<HomeScreen> {
           //todo change marker id -> unique
           markerId: MarkerId("9"),
           position: LatLng(-31.769398, 150.101581),
-          icon: myIcon,
           onTap: () {
             showCupertinoModalBottomSheet(
                 context: context,
@@ -282,7 +197,6 @@ class _HomeScreenState extends State<HomeScreen> {
           //todo change marker id -> unique
           markerId: MarkerId("10"),
           position: LatLng(-31.621455, 152.016470),
-          icon: myIcon,
           onTap: () {
             showCupertinoModalBottomSheet(
                 context: context,
@@ -300,7 +214,6 @@ class _HomeScreenState extends State<HomeScreen> {
           //todo change marker id -> unique
           markerId: MarkerId("0"),
           position: LatLng(-33.777837, 147.800537),
-          icon: myIcon,
           onTap: () {
             showCupertinoModalBottomSheet(
                 context: context,
@@ -327,8 +240,8 @@ class _HomeScreenState extends State<HomeScreen> {
           myLocationEnabled: true,
           myLocationButtonEnabled: false,
           initialCameraPosition: CameraPosition(
-            target: LatLng(-33, 151.2093),
-            zoom: 5,
+            target: LatLng(-33.8688, 151.2093),
+            zoom: 12,
           ),
           markers: _markers,
         ),
