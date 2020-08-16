@@ -61,6 +61,21 @@ We strongly believe the signal app will greatly contribute to the Rural Fire Ser
 
 Vote for our project and help the heroes of Australia get the information they need!
 
+# Screenshots
+<table>
+  <tr>
+    <td> <img src="/screenshots/1.png"  alt="1" width = 180px height = 360px ></td>
+
+    <td><img src="img2.png" alt="2" width = 360px height = 640px></td>
+   </tr> 
+   <tr>
+      <td><img src="/screenshots/2.png alt="3" width = 180px height = 360px></td>
+
+      <td><img src="./Scshot/trip_end.png" align="right" alt="4" width = 360px height = 640px>
+  </td>
+  </tr>
+</table>
+
 # Dataset Used
 
 * [NSW Burnt Area - Combined bush fire incident extents](https://portal.data.nsw.gov.au/arcgis/home/item.html?id=19c6baa455fa43a7bf730f012884b8df)
