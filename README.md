@@ -4,7 +4,9 @@
 
 <b>Team Name:</b> LitSquad (NSW)<br>
 
-<b>Challenge:</b> Engaging communities in hazard reporting & safety [(Challenge Link)](https://hackerspace.govhack.org/challenges/engaging_communities_in_hazard_reporting_safety)
+<b>Challenges:</b><br> 
+Engaging communities in hazard reporting & safety [(Challenge Link)](https://hackerspace.govhack.org/challenges/engaging_communities_in_hazard_reporting_safety)<br>
+Improving government services with open data [(Challenge Link)](https://hackerspace.govhack.org/challenges/improving_government_services_with_open_data)
 
 # Our Solution
 
