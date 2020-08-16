@@ -69,7 +69,7 @@ Vote for our project and help the heroes of Australia get the information they n
     <td><img src="/screenshots/3.png" alt="2" width = 180x height = 360px></td>
    </tr> 
    <tr>
-    <td><img src="/screenshots/4.png" alt="3" width = 180px height = 360px></td>
+    <td><img src="/screenshots/shot4.png" alt="3" width = 180px height = 360px></td>
     <td><img src="/screenshots/5.png" alt="2" width = 180x height = 360px></td>
   </tr>
 </table>
