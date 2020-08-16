@@ -8,6 +8,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:signal_flutter_v2/components/bottom_sheet.dart';
 import 'package:signal_flutter_v2/data/area_update_card_lists.dart';
 import 'package:image_picker/image_picker.dart';
+import 'dart:ui' as ui;
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -15,30 +16,28 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final _markerkey = GlobalKey();
   GoogleMapController _mapController;
-  Set<Marker> _markers = HashSet<Marker>();
   BitmapDescriptor _customIcon;
+  Set<Marker> _markers = HashSet<Marker>();
   File _image;
   final picker = ImagePicker();
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   BitmapDescriptor.fromAssetImage(ImageConfiguration(size: Size(15, 15)),
-  //           "/lib/assets/images/fire_icon.png")
-  //       .then((icon) {
-  //     _customIcon = icon;
-  //   });
-  // }
+
+  @override
+  void initState() {
+    super.initState();
+    BitmapDescriptor.fromAssetImage(
+            ImageConfiguration(size: Size(3, 3), devicePixelRatio: 3.5),
+            "/lib/assets/images/fire_icon_1_30x30.png")
+        .then((icon) {
+      _customIcon = icon;
+    });
+  }
 
   void getPosition() async {
     Position position = await Geolocator()
         .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     print(position);
-  }
-
-  @override
-  void initState() {
-    super.initState();
   }
 
   Future getImage() async {
@@ -63,6 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
           //todo change marker id -> unique
           markerId: MarkerId("1"),
           position: LatLng(-30.501446, 145.702932),
+          icon: _customIcon,
           onTap: () => {
                 showCupertinoModalBottomSheet(
                     context: context,
@@ -85,6 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _markers.add(
       Marker(
           //todo change marker id -> unique
+          icon: _customIcon,
           markerId: MarkerId("2"),
           position: LatLng(-32.705166, 145.567595),
           onTap: () {
@@ -109,6 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _markers.add(
       Marker(
           //todo change marker id -> unique
+          icon: _customIcon,
           markerId: MarkerId("3"),
           position: LatLng(-33.072026, 145.865550),
           onTap: () {
@@ -134,6 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _markers.add(
       Marker(
           //todo change marker id -> unique
+          icon: _customIcon,
           markerId: MarkerId("4"),
           position: LatLng(-29.095658, 141.426478),
           onTap: () {
@@ -158,6 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _markers.add(
       Marker(
           //todo change marker id -> unique
+          icon: _customIcon,
           markerId: MarkerId("5"),
           position: LatLng(-30.962721, 142.693419),
           onTap: () {
@@ -182,6 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _markers.add(
       Marker(
           //todo change marker id -> unique
+          icon: _customIcon,
           markerId: MarkerId("7"),
           position: LatLng(-33.768513, 146.281073),
           onTap: () {
@@ -206,6 +211,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _markers.add(
       Marker(
           //todo change marker id -> unique
+          icon: _customIcon,
           markerId: MarkerId("8"),
           position: LatLng(-34.035388, 146.194336),
           onTap: () {
@@ -231,6 +237,7 @@ class _HomeScreenState extends State<HomeScreen> {
       Marker(
           //todo change marker id -> unique
           markerId: MarkerId("9"),
+          icon: _customIcon,
           position: LatLng(-31.769398, 150.101581),
           onTap: () {
             showCupertinoModalBottomSheet(
@@ -255,23 +262,32 @@ class _HomeScreenState extends State<HomeScreen> {
       Marker(
           //todo change marker id -> unique
           markerId: MarkerId("10"),
+          icon: _customIcon,
           position: LatLng(-31.621455, 152.016470),
           onTap: () {
             showCupertinoModalBottomSheet(
                 context: context,
                 builder: (context, scrollController) {
-                  return Container();
+                  return CustomBottomSheet(
+                      imageURL:
+                          "https://www.denverpost.com/wp-content/uploads/2019/08/01381090c8bb4aebbcaf759c34b047bc.jpg",
+                      reports: "45",
+                      location: "Bugan National Fire Reserve",
+                      isSafe: false,
+                      rfsResponse: "on site",
+                      areaUpdateCardsList: gundabrookaUpdateCardList);
                 });
           },
           infoWindow: InfoWindow(
             title: "Bugan National Reserve",
-            snippet: "No Fire",
+            snippet: "🔥 mild fire",
           )),
     );
     _markers.add(
       Marker(
           //todo change marker id -> unique
           markerId: MarkerId("11"),
+          icon: _customIcon,
           position: LatLng(-33.777837, 147.800537),
           onTap: () {
             showCupertinoModalBottomSheet(
@@ -282,7 +298,7 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           infoWindow: InfoWindow(
             title: "Pullabooka",
-            snippet: "No Fire",
+            snippet: "🔥 mild fire",
           )),
     );
   }
@@ -300,7 +316,7 @@ class _HomeScreenState extends State<HomeScreen> {
           myLocationButtonEnabled: false,
           initialCameraPosition: CameraPosition(
             target: LatLng(-33.8688, 151.2093),
-            zoom: 8,
+            zoom: 6,
           ),
           markers: _markers,
         ),
