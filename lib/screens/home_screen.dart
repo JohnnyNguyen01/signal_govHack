@@ -5,8 +5,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:signal_flutter_v2/components/bottom_sheet.dart';
 import 'package:signal_flutter_v2/data/area_update_card_lists.dart';
-
-//REMOVE THIS GOOGLE_MAPS_API_KEY = 'AIzaSyAr31utYalU_q4_Lh1GtqZrCDgg0VBlcHI'
+import 'package:geolocator/geolocator.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -17,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   GoogleMapController _mapController;
   Set<Marker> _markers = HashSet<Marker>();
   BitmapDescriptor _customIcon;
-
+  Position _position;
   // @override
   // void initState() {
   //   super.initState();
@@ -28,39 +27,51 @@ class _HomeScreenState extends State<HomeScreen> {
   //   });
   // }
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getPosition();
+  }
+
+  void getPosition() async {
+    _position = await Geolocator()
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+  }
+
   //The initial method that runs everytime Google Maps Opens
   void _onMapCreated(GoogleMapController controller) {
     _mapController = controller;
     setState(() {
-      _markers.add(
-        Marker(
-            //todo change marker id -> unique
-            markerId: MarkerId("0"),
-            position: LatLng(-33.8688, 151.2093),
-            onTap: () {
-              showCupertinoModalBottomSheet(
-                  context: context,
-                  builder: (context, scrollController) {
-                    return Opacity(
-                      opacity: 0.8,
-                      child: Scaffold(
-                        body: CustomBottomSheet(
-                            location: "Sydney",
-                            reports: "124",
-                            isSafe: true,
-                            rfsResponse: "none",
-                            areaUpdateCardsList: sydney,
-                            imageURL:
-                                "https://www.nationalparks.nsw.gov.au/-/media/npws/images/parks/gundabooka-national-park/little-mountain-walking-track/little-mountain-track-01.jpg"),
-                      ),
-                    );
-                  });
-            },
-            infoWindow: InfoWindow(
-              title: "Sydney",
-              snippet: "No Fire",
-            )),
-      );
+      // _markers.add(
+      //   Marker(
+      //       //todo change marker id -> unique
+      //       markerId: MarkerId("0"),
+      //       position: LatLng(-33.8688, 151.2093),
+      //       onTap: () {
+      //         showCupertinoModalBottomSheet(
+      //             context: context,
+      //             builder: (context, scrollController) {
+      //               return Opacity(
+      //                 opacity: 0.8,
+      //                 child: Scaffold(
+      //                   body: CustomBottomSheet(
+      //                       location: "Sydney",
+      //                       reports: "124",
+      //                       isSafe: true,
+      //                       rfsResponse: "none",
+      //                       areaUpdateCardsList: sydney,
+      //                       imageURL:
+      //                           "https://www.nationalparks.nsw.gov.au/-/media/npws/images/parks/gundabooka-national-park/little-mountain-walking-track/little-mountain-track-01.jpg"),
+      //                 ),
+      //               );
+      //             });
+      //       },
+      //       infoWindow: InfoWindow(
+      //         title: "Sydney",
+      //         snippet: "No Fire",
+      //       )),
+      // );
       _addMarkerList();
     });
   }
@@ -71,16 +82,23 @@ class _HomeScreenState extends State<HomeScreen> {
           //todo change marker id -> unique
           markerId: MarkerId("1"),
           position: LatLng(-30.501446, 145.702932),
-          onTap: () {
-            showCupertinoModalBottomSheet(
-                context: context,
-                builder: (context, scrollController) {
-                  return Container();
-                });
-          },
+          onTap: () => {
+                showCupertinoModalBottomSheet(
+                    context: context,
+                    builder: (context, scrollController) {
+                      return CustomBottomSheet(
+                          imageURL:
+                              "https://www.nationalparks.nsw.gov.au/-/media/npws/images/parks/gundabooka-national-park/valley-of-eagles/valley-of-eagles-walk-01.jpg",
+                          reports: "432",
+                          location: "Gundabrooka",
+                          isSafe: false,
+                          rfsResponse: "in area",
+                          areaUpdateCardsList: gundabrookaUpdateCardList);
+                    }),
+              },
           infoWindow: InfoWindow(
             title: "Gunderbrooka",
-            snippet: "No Fire",
+            snippet: "🔥🔥🔥",
           )),
     );
     _markers.add(
@@ -247,6 +265,8 @@ class _HomeScreenState extends State<HomeScreen> {
       children: <Widget>[
         GoogleMap(
           onMapCreated: _onMapCreated,
+          myLocationEnabled: true,
+          myLocationButtonEnabled: false,
           initialCameraPosition: CameraPosition(
             target: LatLng(-33.8688, 151.2093),
             zoom: 12,

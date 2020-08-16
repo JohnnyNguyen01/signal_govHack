@@ -18,3 +18,20 @@ final sydney = [
     color: Colors.red.shade700,
   ),
 ];
+
+final gundabrookaUpdateCardList = [
+  AreaUpdateCard(
+    title: "Area now declared DANGEROUS",
+    color: Colors.red.shade700,
+    textOne: "RFS has been dispatched to outbreak",
+    textTwo: "evacuate as soon as possible",
+    icon: FontAwesomeIcons.bell,
+  ),
+  AreaUpdateCard(
+    title: "Caution is advises",
+    textOne: "Hot and dry weather upwards",
+    textTwo: "of 48 degrees",
+    icon: FontAwesomeIcons.info,
+    color: Colors.orange.shade400,
+  ),
+];

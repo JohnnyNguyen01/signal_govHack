@@ -17,12 +17,12 @@ class CustomBottomSheet extends StatelessWidget {
   List<Widget> areaUpdateCardsList;
 
   CustomBottomSheet({
-    this.imageURL,
-    this.reports,
-    this.location,
-    this.isSafe,
-    this.rfsResponse,
-    this.areaUpdateCardsList,
+    @required this.imageURL,
+    @required this.reports,
+    @required this.location,
+    @required this.isSafe,
+    @required this.rfsResponse,
+    @required this.areaUpdateCardsList,
   });
 
   @override
