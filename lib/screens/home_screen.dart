@@ -1,11 +1,11 @@
 import 'dart:collection';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:signal_flutter_v2/components/bottom_sheet.dart';
 import 'package:signal_flutter_v2/data/area_update_card_lists.dart';
-import 'package:geolocator/geolocator.dart';
+import 'package:location/location.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   GoogleMapController _mapController;
   Set<Marker> _markers = HashSet<Marker>();
   BitmapDescriptor _customIcon;
-  Position _position;
+  Location location = Location();
   // @override
   // void initState() {
   //   super.initState();
@@ -29,13 +29,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    getLocation();
   }
 
-  void getPosition() async {
-    _position = await Geolocator()
-        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+  void getLocation() async {
+    LocationData _locationData = await location.getLocation();
+    print(_locationData);
   }
 
   //The initial method that runs everytime Google Maps Opens
@@ -43,8 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
     _mapController = controller;
     setState(() {
       _addMarkerList();
-      getPosition();
-      print(_position);
     });
   }
 
@@ -241,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
           myLocationButtonEnabled: false,
           initialCameraPosition: CameraPosition(
             target: LatLng(-33.8688, 151.2093),
-            zoom: 12,
+            zoom: 4,
           ),
           markers: _markers,
         ),
@@ -262,6 +260,96 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+        ),
+        Positioned(
+          right: 14,
+          bottom: 14,
+          child: FloatingActionButton(
+              child: Container(
+                height: 60,
+                width: 60,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    gradient:
+                        LinearGradient(colors: [Colors.red, Colors.orange])),
+                child: Icon(
+                  Icons.add,
+                  size: 40,
+                ),
+              ),
+              onPressed: () => showCupertinoModalBottomSheet(
+                  context: context,
+                  builder: (context, scrollController) {
+                    double severity = 0;
+                    return (Scaffold(
+                      body: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text("Report incident in:"),
+                          SizedBox(height: 20),
+                          Text("upload a photo"),
+                          Center(
+                            child: Container(
+                              width: 300,
+                              height: 200,
+                              color: Colors.black,
+                              child: Stack(
+                                children: <Widget>[
+                                  Positioned(
+                                    bottom: 10,
+                                    right: 10,
+                                    child: FloatingActionButton(
+                                        child: Container(
+                                          height: 60,
+                                          width: 60,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            gradient: LinearGradient(colors: [
+                                              Colors.red,
+                                              Colors.orange
+                                            ]),
+                                          ),
+                                          child: Icon(
+                                            FontAwesomeIcons.camera,
+                                            size: 25,
+                                          ),
+                                        ),
+                                        onPressed: () => {}),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Slider(
+                              value: severity,
+                              min: 0,
+                              max: 100,
+                              //divisions: 4,
+                              onChanged: (double value) {
+                                setState(() => severity = value);
+                              }),
+                          SizedBox(height: 30),
+                          FlatButton(
+                              onPressed: () {},
+                              child: Text(
+                                "CONFIRM",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.red),
+                              )),
+                          FlatButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: Text(
+                                "CANCEL",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                ),
+                              ))
+                        ],
+                      ),
+                    ));
+                  })),
         ),
       ],
     ));
