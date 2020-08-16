@@ -26,7 +26,7 @@ Signal also creates a way for the RFS to communicate with the community, providi
 Users sign up with Google or AppleID and this ensures everyone submitting report has an account (reduces the rate of false/anonymous reports and abuse of the reporting feature)
 
 * __Google Maps Layout of all Verified Reports with location pins:__ 
-All verified reports are listed on the google map for all users to see. Benefits include that it is visual and that it’s an intuitive way to display reports near the users’ location.
+All verified reports are listed on the google map for all users to see. Benefits include that it is visual and that it’s an intuitive way to display reports near the users’ location. Both Datasets are used to also display known bushfire incidents on the map
 
 * __Submit report Button:__ 
 A simple reporting feature that allows users to report a bushfire incident with a few simple clicks. Easy to understand. Quick and very visual.
