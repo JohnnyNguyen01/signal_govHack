@@ -61,6 +61,8 @@ We strongly believe the signal app will greatly contribute to the Rural Fire Ser
 
 Vote for our project and help the heroes of Australia get the information they need!
 
+# Screenshots
+![Alt text](/screenshots/1.png "Login Screen")
 
 # Dataset Used
 
