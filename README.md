@@ -63,6 +63,7 @@ Vote for our project and help the heroes of Australia get the information they n
 
 # Screenshots
 ![Alt text](/screenshots/1.png "Login Screen")
+![Alt text](/screenshots/2.png "Login Screen")
 
 # Dataset Used
 
