@@ -10,7 +10,7 @@
 
 The Signal app allows the NSW Fire department to get live data about areas affected by the bushfires by allowing Australians to quickly and easily report if there is a fire in their area.<br>
 
-The app allows users in hazard prone areas to submit a report if there is a bushfire in their location. 
+The app allows users in hazard-prone areas to submit a report if there is a bushfire in their location. 
 This report is then approved by the NSW Rural Fire Service and is used to help support an emergency response. 
 
 Signal also creates a way for the RFS to communicate with the community, providing a community forum under each verified bushfire report.<br>
@@ -21,20 +21,20 @@ Signal also creates a way for the RFS to communicate with the community, providi
 
 As a result of the 2019/2020 BushFires, at least 33 people have been killed (including four firefighters) and more than 11 million hectares of bush, forest and parks across Australia have burned.<br>
 
-Bushfire incidents were recorded by monitoring high risk areas with helicopters, with a minimum of 1hr lag when it comes to displaying that information which has greatly impacted the RFS ability to respond effectively.<br>
+Bushfire incidents were recorded by monitoring high-risk areas with helicopters, with a minimum of 1hr lag when it comes to displaying that information which has greatly impacted the RFS ability to respond effectively.<br>
 
-The importance of current and reliable information is paramount when it comes to emergency situations. Thus, the app would play a key role in improving the RFS's information procurement processes.<br>
+The importance of current and reliable information is paramount when it comes to emergencies. Thus, the app would play a key role in improving the RFS's information procurement processes.<br>
 
 The Signal app can:
 
 * __Drastically improves emergency response times__
 * __Create a quick and reliable source of incident reporting for the NSW Fire department__ 
 * __Allow effective communication between the community and the RFS to help them take action to better respond to future bushfires__
-* __Drastically reduce cost for RFS to retrieve information about bushfire incidents__
+* __Drastically reduce the cost for RFS to retrieve information about bushfire incidents__
 
 We strongly believe the signal app will greatly contribute to the Rural Fire Service's mission to reduce the likelihood and consequence of fires occurring in Australia. 
 
-Vote for our project and help the heros of Australia get the information they need!
+Vote for our project and help the heroes of Australia get the information they need!
 
 
 # Dataset Used
