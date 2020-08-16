@@ -4,6 +4,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:signal_flutter_v2/components/bottom_sheet.dart';
+import 'package:signal_flutter_v2/data/area_update_card_lists.dart';
 
 //REMOVE THIS GOOGLE_MAPS_API_KEY = 'AIzaSyAr31utYalU_q4_Lh1GtqZrCDgg0VBlcHI'
 
@@ -43,7 +44,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     return Opacity(
                       opacity: 0.8,
                       child: Scaffold(
-                        body: CustomBottomSheet(),
+                        body: CustomBottomSheet(
+                            location: "Sydney",
+                            reports: "124",
+                            isSafe: true,
+                            rfsResponse: "none",
+                            areaUpdateCardsList: sydney,
+                            imageURL:
+                                "https://www.nationalparks.nsw.gov.au/-/media/npws/images/parks/gundabooka-national-park/little-mountain-walking-track/little-mountain-track-01.jpg"),
                       ),
                     );
                   });
