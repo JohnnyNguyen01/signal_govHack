@@ -19,22 +19,22 @@ Signal also creates a way for the RFS to communicate with the community, providi
 
 # Why it’s important
 
-The Rural Fire Service has a problem receiving live data about bushfire incidents. <br>
-
 As a result of the 2019/2020 BushFires, at least 33 people have been killed (including four firefighters) and more than 11 million hectares of bush, forest and parks across Australia have burned.<br>
 
 Bushfire incidents were recorded by monitoring high risk areas with helicopters, with a minimum of 1hr lag when it comes to displaying that information which has greatly impacted the RFS ability to respond effectively.<br>
 
+The importance of current and reliable information is paramount when it comes to emergency situations. Thus, the app would play a key role in improving the RFS's information procurement processes.<br>
+
 The Signal app can:
 
-* __drastically cut down on this processing time__
-* __create a quick and reliable source of incident reporting for the NSW Fire department__ 
+* __Drastically improves emergency responce times__
+* __Create a quick and reliable source of incident reporting for the NSW Fire department__ 
 * __Allow effective communication between the community and the RFS to help them take action to better respond to future bushfires__
 * __Drastically reduce cost for RFS to retreive information about bushfire incidents__
 
 We strongly believe the signal app will greatly contribute to the Rural Fire Service's mission to reduce the likelihood and consequence of fires occurring in Australia. 
 
-Vote for our project and make this app a reality!
+Vote for our project and help the heros of Australia get the information they need!
 
 
 # Dataset Used
