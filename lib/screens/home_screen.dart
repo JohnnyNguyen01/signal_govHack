@@ -331,10 +331,158 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               showCupertinoModalBottomSheet(
                 context: context,
+                backgroundColor: Colors.black.withOpacity(0.25),
                 builder: (context, scrollController) => Container(
-                  child: Column(
-                    children: <Widget>[Text("Hello there")],
-                  ),
+                  child: Scaffold(
+                      backgroundColor: Colors.white.withOpacity(0.25),
+                      body: Container(
+                        margin: EdgeInsets.only(left: 30, top: 12),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              "Latest Updates",
+                              style:
+                                  TextStyle(fontSize: 25, color: Colors.white),
+                            ),
+                            SizedBox(height: 15),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Container(
+                                  width: 300,
+                                  height: 90,
+                                  color: Colors.white,
+                                  child: Row(
+                                    children: <Widget>[
+                                      Container(
+                                        width: 80,
+                                        height: 80,
+                                        margin: EdgeInsets.only(left: 5),
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                          image: DecorationImage(
+                                            fit: BoxFit.fill,
+                                            image: NetworkImage(
+                                                "https://s.yimg.com/ny/api/res/1.2/Pa5mpD3GHDkhX10UsX7OWA--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9ODAw/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2019-11/23b83ea0-0347-11ea-adf5-4a4af1c8d0e6"),
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.only(left: 10),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Text(
+                                              "Armidale",
+                                              style: TextStyle(
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            Text(
+                                                "@RFS have arrived to Armidale "),
+                                            Text("for the bushfire report.")
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  )),
+                            ),
+                            SizedBox(height: 12),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Container(
+                                  width: 300,
+                                  height: 90,
+                                  color: Colors.white,
+                                  child: Row(
+                                    children: <Widget>[
+                                      Container(
+                                        width: 80,
+                                        height: 80,
+                                        margin: EdgeInsets.only(left: 5),
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                          image: DecorationImage(
+                                            fit: BoxFit.fill,
+                                            image: NetworkImage(
+                                                "https://images.s.7news.com.au/publication/C-627538/61f64990ac2262cece26d76e1e71256226faa6d8-16x9-x0y50w1600h900.jpg?imwidth=828&impolicy=sevennews_v2"),
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.only(left: 10),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Text(
+                                              "Alert",
+                                              style: TextStyle(
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            Text("Danger level escalated."),
+                                            Text(
+                                                "Please evacuate regional areas")
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  )),
+                            ),
+                            SizedBox(height: 12),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Container(
+                                  width: 300,
+                                  height: 90,
+                                  color: Colors.white,
+                                  child: Row(
+                                    children: <Widget>[
+                                      Container(
+                                        width: 80,
+                                        height: 80,
+                                        margin: EdgeInsets.only(left: 5),
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                          image: DecorationImage(
+                                            fit: BoxFit.fill,
+                                            image: NetworkImage(
+                                                "https://cdn.newsapi.com.au/image/v1/1d6543514f3042550823b18d406c3e6b?width=1024"),
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.only(left: 10),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Text(
+                                              "Yathong",
+                                              style: TextStyle(
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            Text(
+                                                "@RFS have arrived at Yathong."),
+                                            Text("Please evacuate the area")
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  )),
+                            ),
+                          ],
+                        ),
+                      )),
                 ),
               );
             },
